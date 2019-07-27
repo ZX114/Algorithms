@@ -35,8 +35,4 @@ public class ResizingStack<Item> implements Iterable<Item> {
     public ResizingStack() {
         this(10);
     }*/
-
-    public static void main(String[] args) {
-
-    }
 }

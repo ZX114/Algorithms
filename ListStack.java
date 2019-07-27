@@ -1,6 +1,7 @@
 import java.util.Iterator;
 
 public class ListStack<Item> implements Iterable<Item> {
+    // LIFO
     private Node first;
     private int N;
     private class Node {
@@ -9,6 +10,7 @@ public class ListStack<Item> implements Iterable<Item> {
     }
     public boolean isEmpty() { return first == null; }
     public int size() { return N; }
+    public Item peek() { return first.item;}
     public void push(Item it) {
         Node temp = first;
         first = new Node();
