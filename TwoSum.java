@@ -12,7 +12,7 @@ public class TwoSum {
         }
         return cnt;
     }
-    // 没有各不相同的限制
+    // 没有必须各不相同的限制
     // 复杂度为 O(N^2)
     public static int count(int sum, int[] a) {
         int cnt = 0;
@@ -24,15 +24,10 @@ public class TwoSum {
         return cnt;
     }
     public static void main(String[] args) {
-//        try {
-//            BufferedReader br = new BufferedReader(new FileReader("data.txt"));
-//            String s;
-//            while ((s = br.readLine()) != null) {}
-//        } catch (IOException e) {}
-        int[] a = new int[1000];
+        int[] a = new int[100];
         Random r = new Random();
         for (int i=0; i<a.length; i++)
-            a[i] = r.nextInt(100);
-        System.out.println(count(100, a));
+            a[i] = r.nextInt(10);
+        System.out.println(count(10, a));
     }
 }
