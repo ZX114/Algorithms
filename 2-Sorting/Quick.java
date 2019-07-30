@@ -10,24 +10,33 @@
  * */
 import java.util.Random;
 
-public class Shell {
+public class Quick {
     public static void sort(Comparable[] a) {
-        int N = a.length;
-        int h = 1;
-        while (h < N/3) h = 3*h +1;
-        while (h >= 1) {
-            for (int i = h; i < N; i++) {
-                for (int j = i; j >= h && less(a[j], a[j-h]); j -= h) exch(a, j, j - h);
-            }
-            h /= 3;
-        }
+        sort(a, 0, a.length-1);
     }
-    private static boolean less(Comparable p, Comparable q) { return p.compareTo(q) < 0; }
+    private static void sort(Comparable[] a, int lo, int hi) {
+        if (hi <= lo) return;
+        int mid = partition(a, lo, hi);
+        sort(a, lo, mid-1);
+        sort(a, mid+1, hi);
+    }
+    private static int partition(Comparable[] a, int lo, int hi) {
+        Comparable f = a[lo];
+        int i = lo+1, j = hi;
+        while (i <= j) {
+            if (less(a[i], f)) i++;
+            else if (less(f, a[j])) j--;
+            else { exch(a, i, j); i++; j--; }
+        }
+        exch(a, lo, j);
+        return j;
+    }
     private static void exch(Comparable[] a, int i, int j) {
         Comparable temp = a[i];
         a[i] = a[j];
         a[j] = temp;
     }
+    private static boolean less(Comparable p, Comparable q) { return p.compareTo(q) < 0; }
     public static void show(Comparable[] a) {
         for (Comparable i : a) System.out.print(i + " ");
         System.out.println();
