@@ -14,6 +14,7 @@ public class TwoSum {
     }
     // 没有必须各不相同的限制
     // 复杂度为 O(N^2)
+    // A brute-force solution
     public static int count(int sum, int[] a) {
         int cnt = 0;
         for (int i=0; i<a.length; i++) {
