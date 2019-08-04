@@ -1,4 +1,4 @@
-public class ST<Key extends Comparable<Key>, Value> {
+public class SequentialSearchST<Key extends Comparable<Key>, Value> {
     private Node first;
     private class Node {
         Key key;
@@ -11,7 +11,7 @@ public class ST<Key extends Comparable<Key>, Value> {
         }
     }
 
-    public ST() { }
+    public SequentialSearchST() { }
 
     public void put(Key k, Value v) {
         for (Node i=first; i!=null; i=i.next)
