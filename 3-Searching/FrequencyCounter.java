@@ -6,7 +6,8 @@ public class FrequencyCounter {
     public static void main(String[] args) throws FileNotFoundException {
         int minLen = 3;
 //        BinarySearchST<String, Integer> st = new BinarySearchST<String, Integer>(20000);
-        SequentialSearchST<String, Integer> st = new SequentialSearchST<String, Integer>();
+//        SequentialSearchST<String, Integer> st = new SequentialSearchST<String, Integer>();
+        BST<String, Integer> st = new BST<String, Integer>();
 
         Scanner in = new Scanner(new FileReader("tale.txt"));
         while (in.hasNext()) {

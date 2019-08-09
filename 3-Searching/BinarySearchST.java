@@ -61,6 +61,12 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
         return lo;
     }
 
+    public Key ceiling(Key k) {
+        int i = rank(k);
+        if (i == N) return null;
+        else return keys[i];
+    }
+
     public Iterable<Key> keys() {
         ListQueue<Key> queue = new ListQueue<>();
         for (int i=0; i<N; i++) { queue.enqueue(keys[i]); }
