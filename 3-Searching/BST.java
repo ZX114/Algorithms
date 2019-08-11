@@ -37,6 +37,10 @@ public class BST<Key extends Comparable<Key>, Value> {
         else x.value = v;
         return x;
     }
+
+    /**
+     * @return the smallest value
+     */
     public Key min() {
         Key k = null;
         Node x = root;
@@ -45,6 +49,10 @@ public class BST<Key extends Comparable<Key>, Value> {
             x = x.left;
         }
         return k;
+    }
+    private Node min(Node x) {
+        if (x.left == null) return x;
+        else return min(x.left);
     }
     public boolean contains(Key k) { return get(k) != null; }
     public Key floor(Key k) {
@@ -67,12 +75,29 @@ public class BST<Key extends Comparable<Key>, Value> {
     /**
      * Delete the minimum element.
      */
-    public void deleteMin() {
-        root = deleteMin(root);
-    }
+    public void deleteMin() { root = deleteMin(root); }
     private Node deleteMin(Node x) {
         if (x.left == null) return x.right;
         x.left = deleteMin(x.left);
+        return x;
+    }
+
+    public void delete(Key k) { root = delete(root, k); }
+    private Node delete(Node x, Key k) {
+        if (x == null) return null;
+        int cmp = k.compareTo(x.key);
+        if (cmp < 0) x.left = delete(x.left, k);
+        else if (cmp > 0) x.right = delete(x.right, k);
+        else {
+            if (x.right == null) return x.left;
+            else if (x.left == null) return x.right;
+            else {
+                Node t = x;
+                x = min(t.right);
+                x.right = deleteMin(x.right);
+                x.left = t.left;
+            }
+        }
         return x;
     }
 
@@ -101,6 +126,7 @@ public class BST<Key extends Comparable<Key>, Value> {
             else st.put(s, st.get(s)+1);
         }
         st.deleteMin();
+        st.delete(st.min());
         System.out.println(st.min());
     }
 }
