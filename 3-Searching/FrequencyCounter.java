@@ -4,12 +4,14 @@ import java.util.Scanner;
 
 public class FrequencyCounter {
     public static void main(String[] args) throws FileNotFoundException {
-        int minLen = 3;
+        int minLen = 5;
 //        BinarySearchST<String, Integer> st = new BinarySearchST<String, Integer>(20000);
 //        SequentialSearchST<String, Integer> st = new SequentialSearchST<String, Integer>();
-        BST<String, Integer> st = new BST<String, Integer>();
+//        BST<String, Integer> st = new BST<String, Integer>();
+        RedBlackBST<String, Integer> st = new RedBlackBST<>();
 
-        Scanner in = new Scanner(new FileReader("tale.txt"));
+        long startTime = System.currentTimeMillis();
+        Scanner in = new Scanner(new FileReader("leipzig1M.txt"));
         while (in.hasNext()) {
             String word = in.next();
             if (word.length() < minLen) continue;
@@ -22,5 +24,7 @@ public class FrequencyCounter {
             if (st.get(word) > st.get(max)) max = word;
 
         System.out.println(max + " " + st.get(max));
+        long endTime = System.currentTimeMillis();
+        System.out.println("Execution time: " + (endTime - startTime)/1000.0 + " s");
     }
 }
