@@ -8,7 +8,8 @@ public class FrequencyCounter {
 //        BinarySearchST<String, Integer> st = new BinarySearchST<String, Integer>(20000);
 //        SequentialSearchST<String, Integer> st = new SequentialSearchST<String, Integer>();
 //        BST<String, Integer> st = new BST<String, Integer>();
-        RedBlackBST<String, Integer> st = new RedBlackBST<>();
+//        RedBlackBST<String, Integer> st = new RedBlackBST<>();
+        SeparateChainingHashST<String, Integer> st = new SeparateChainingHashST<>();
 
         long startTime = System.currentTimeMillis();
         Scanner in = new Scanner(new FileReader("leipzig1M.txt"));
