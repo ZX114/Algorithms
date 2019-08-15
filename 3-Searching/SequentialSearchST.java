@@ -1,4 +1,4 @@
-public class SequentialSearchST<Key extends Comparable<Key>, Value> {
+public class SequentialSearchST<Key, Value> {
     private Node first;
     private class Node {
         Key key;

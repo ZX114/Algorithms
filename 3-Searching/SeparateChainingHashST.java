@@ -1,4 +1,4 @@
-public class SeparateChainingHashST<Key extends Comparable<Key>, Value> {
+public class SeparateChainingHashST<Key, Value> {
     private static final int INIT_SIZE = 1000;
     private int N;
     private int M;

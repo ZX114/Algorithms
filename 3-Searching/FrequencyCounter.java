@@ -9,7 +9,8 @@ public class FrequencyCounter {
 //        SequentialSearchST<String, Integer> st = new SequentialSearchST<String, Integer>();
 //        BST<String, Integer> st = new BST<String, Integer>();
 //        RedBlackBST<String, Integer> st = new RedBlackBST<>();
-        SeparateChainingHashST<String, Integer> st = new SeparateChainingHashST<>();
+//        SeparateChainingHashST<String, Integer> st = new SeparateChainingHashST<>();
+        LinearProbingHashST<String, Integer> st = new LinearProbingHashST<>();
 
         long startTime = System.currentTimeMillis();
         Scanner in = new Scanner(new FileReader("leipzig1M.txt"));
