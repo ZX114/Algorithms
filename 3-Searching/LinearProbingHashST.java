@@ -78,6 +78,37 @@ public class LinearProbingHashST<Key, Value> {
         return null;
     }
 
+    /**
+     * Remove the specified key-value pair from the symbol table
+     * @param k the key
+     */
+    public void delete(Key k) {
+        if (!contains(k)) return;
+
+        // 1. find the key and set it to null
+        int i = hash(k);
+        while(!keys[i].equals(k)) { i = (i + 1) % M; }
+        setNull(i);
+
+        // 2. re-insert the following keys until null
+        i = (i + 1) % M;
+        while (keys[i] != null) {
+            Key kToRdDo = keys[i];
+            Value vToReDo = values[i];
+            setNull(i);
+            put(kToRdDo, vToReDo);
+            i = (i + 1) % M;
+        }
+
+        // 3. resize if 12.5% full or less
+        if (N > 0 && N < M/8) resize(M/2);
+    }
+    private void setNull(int i) {
+        keys[i] = null;
+        values[i] = null;
+        N--;
+    }
+
     public Iterable<Key> keys() {
         ListQueue<Key> queue = new ListQueue<>();
         for (int i=0; i<M; i++) {
