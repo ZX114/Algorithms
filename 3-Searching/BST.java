@@ -17,6 +17,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     /**
      * Get a value with a given key, return null if not found.
+     *
      * @param k the key
      * @return the value
      */
@@ -103,6 +104,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     /**
      * Enable foreach iterations.
+     *
      * @return a ListQueue for iteration
      */
     public Iterable<Key> keys() {

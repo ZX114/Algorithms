@@ -42,6 +42,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
     /**
      * Inserts the specified key-value pair into the symbol table, overwriting
      * the old value.
+     *
      * @param k the key
      * @param v the value
      */
@@ -62,7 +63,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         return h;
     }
 
-    
+
     /*************************************************************************
      *  Helper functions.
      *************************************************************************/

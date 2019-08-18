@@ -12,6 +12,7 @@ public class TwoSum {
         }
         return cnt;
     }
+
     // 没有必须各不相同的限制
     // 复杂度为 O(N^2)
     // A brute-force solution
@@ -24,6 +25,7 @@ public class TwoSum {
         }
         return cnt;
     }
+
     public static void main(String[] args) {
         int[] a = new int[100];
         Random r = new Random();

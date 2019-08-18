@@ -11,6 +11,7 @@ public class ListQueue<Item> implements Iterable<Item> {
     }
     public boolean isEmpty() { return first == null; }
     public int size() { return N; }
+
     public void enqueue(Item it) {
         Node temp = last;
         last = new Node();

@@ -22,10 +22,12 @@ public class Merge {
             else a[k] = aux[i++];
         }
     }
+
     public static void sort(Comparable[] a) {
         aux = new Comparable[a.length];
         sort(a, 0, a.length-1);
     }
+
     private static void sort(Comparable[] a, int lo, int hi) {
         if (hi <= lo) return;
         int mid = lo + (hi - lo)/2;
@@ -35,15 +37,18 @@ public class Merge {
     }
 
     private static boolean less(Comparable p, Comparable q) { return p.compareTo(q) < 0; }
+
     public static void show(Comparable[] a) {
         for (Comparable i : a) System.out.print(i + " ");
         System.out.println();
     }
+
     public static boolean isSorted(Comparable[] a) {
         for (int i=1; i<a.length; i++)
             if (less(a[i], a[i-1])) return false;
         return true;
     }
+
     public static void main(String[] args) {
         Double[] a = new Double[10000000];
         Random r = new Random();

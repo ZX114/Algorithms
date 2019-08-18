@@ -6,7 +6,7 @@ public class LinearProbingHashST<Key, Value> {
     private Value[] values;
 
     /**
-     * Initialization with the given capacity
+     * Initialization with the given capacity.
      */
     public LinearProbingHashST() { this(INIT_CAP); }
     public LinearProbingHashST(int CAP) {
@@ -46,7 +46,7 @@ public class LinearProbingHashST<Key, Value> {
     }
 
     /**
-     * Inserts the specified key-value pair
+     * Inserts the specified key-value pair.
      *
      * @param k the key
      * @param v the value
@@ -79,7 +79,8 @@ public class LinearProbingHashST<Key, Value> {
     }
 
     /**
-     * Remove the specified key-value pair from the symbol table
+     * Remove the specified key-value pair from the symbol table.
+     *
      * @param k the key
      */
     public void delete(Key k) {

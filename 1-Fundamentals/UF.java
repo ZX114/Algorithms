@@ -47,6 +47,7 @@ public class UF {
 //            if (id[i] ==  pid) id[i] = id[q];
 //        count--;
 //    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader("largeUF.txt"));
         int N = Integer.parseInt(br.readLine());

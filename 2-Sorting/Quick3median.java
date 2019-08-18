@@ -10,6 +10,7 @@ public class Quick3median {
         sort(a, lo, mid-1);
         sort(a, mid+1, hi);
     }
+
     private static int partition(Comparable[] a, int lo, int hi) {
         Comparable f;
         if ((hi - lo) > 1) f = median(a[lo], a[lo+1], a[lo+2]);
@@ -23,26 +24,32 @@ public class Quick3median {
         exch(a, lo, j);
         return j;
     }
+
     private static Comparable median(Comparable a, Comparable b, Comparable c) {
         if (less(a, b) && less(b, c)) return b;
         else if (less(a, c) && less(c, b)) return c;
         else return a;
     }
+
     private static void exch(Comparable[] a, int i, int j) {
         Comparable temp = a[i];
         a[i] = a[j];
         a[j] = temp;
     }
+
     private static boolean less(Comparable p, Comparable q) { return p.compareTo(q) < 0; }
+
     public static void show(Comparable[] a) {
         for (Comparable i : a) System.out.print(i + " ");
         System.out.println();
     }
+
     public static boolean isSorted(Comparable[] a) {
         for (int i=1; i<a.length; i++)
             if (less(a[i], a[i-1])) return false;
         return true;
     }
+
     public static void main(String[] args) {
         Double[] a = new Double[10000000];
         Random r = new Random();

@@ -13,6 +13,7 @@ public class HeapSort {
     }
     private static int parent(int k) { return ((k+1)/2 - 1);}
     private static int lcd(int k) { return ((k+1)*2 - 1);}
+
     private static void sink(Comparable[] a, int k, int N) {
         while (lcd(k) < N) {
             int j = lcd(k);
@@ -28,6 +29,7 @@ public class HeapSort {
             k = parent(k);
         }
     }
+
     private static boolean less(Comparable[] a, int i, int j) { return a[i].compareTo(a[j]) < 0; }
     private static void exch(Comparable[] a, int i, int j) {
         Comparable t = a[i];
@@ -39,6 +41,7 @@ public class HeapSort {
             if (less(a, i, i-1)) return false;
         return true;
     }
+
     public static void main(String[] args) {
         Double[] a = new Double[10000000];
         Random r = new Random();

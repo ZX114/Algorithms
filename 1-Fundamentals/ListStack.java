@@ -10,7 +10,9 @@ public class ListStack<Item> implements Iterable<Item> {
     }
     public boolean isEmpty() { return first == null; }
     public int size() { return N; }
+
     public Item peek() { return first.item;}
+
     public void push(Item it) {
         Node temp = first;
         first = new Node();
@@ -18,13 +20,16 @@ public class ListStack<Item> implements Iterable<Item> {
         first.next = temp;
         N++;
     }
+
     public Item pop() {
         Item it =  first.item;
         first = first.next;
         N--;
         return it;
     }
+
     public Iterator<Item> iterator() { return new ListIterator(); }
+
     private class ListIterator implements Iterator<Item> {
         private Node current = first;
         public boolean hasNext() { return current!=null; }

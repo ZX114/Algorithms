@@ -2,6 +2,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * 事件 A 在一次试验中发生的概率为 p，独立重复试验 N 次
+ * 以 X 记 A 在 N 次试验中发生的次数，X=k（即发生k次）的概率记为 p(X=k)
+ */
 public class Binomial {
     private static int cnt = 0;
     // direct method
@@ -53,11 +57,11 @@ public class Binomial {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
+        int N = Integer.parseInt(br.readLine());
         int k = Integer.parseInt(br.readLine());
         double p = Double.parseDouble(br.readLine());
         long startTime = System.currentTimeMillis();
-        System.out.println(binomial_storage(n, k, p));
+        System.out.println(binomial_storage(N, k, p));
         long endTime = System.currentTimeMillis();
         System.out.println("Execution time: " + (endTime - startTime)/1000.0 + " s");
         System.out.println("Number: " + cnt);

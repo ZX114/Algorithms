@@ -30,6 +30,7 @@ public class SeparateChainingHashST<Key, Value> {
     /**
      * Inserts the specified key-value pair
      * Double M if average length of list >= 10
+     *
      * @param k the key
      * @param v the value
      */
