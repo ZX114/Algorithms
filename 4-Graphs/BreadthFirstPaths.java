@@ -2,36 +2,35 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class DepthFirstPaths {
-    private boolean[] marked;  // marked[v]: s and v are connected
-    private int[] edgeTo;  // edgeTo[v]: last edge on s-v path
-    private final int s;  // the source vertex
+public class BreadthFirstPaths {
+    private boolean[] marked;
+    private int[] edgeTo;
+    private final int s;
 
-    /**
-     * Computes paths between {@code s} and other vertices in this graph.
-     *
-     * @param g the graph
-     * @param s the source vertex
-     */
-    public DepthFirstPaths(Graph g, int s) {
+    public BreadthFirstPaths(Graph g, int s) {
         marked = new boolean[g.V()];
         edgeTo = new int[g.V()];
         this.s = s;
-        dfs(g, s);
+        bfs(g, s);
     }
 
     /**
-     * Depth first search from v.
-     *
+     * Breadth first search from v.
      * @param g the graph
      * @param v the vertex
      */
-    private void dfs(Graph g, int v) {
+    private void bfs(Graph g, int v) {
+        ListQueue<Integer> q = new ListQueue<Integer>();
         marked[v] = true;
-        for (int w : g.adj(v)) {
-            if (!marked[w]) {
-                dfs(g, w);
-                edgeTo[w] = v;
+        q.enqueue(v);
+        while (!q.isEmpty()) {
+            int w = q.dequeue();
+            for (int i : g.adj(w)) {
+                if (!marked[i]) {
+                    marked[i] = true;
+                    edgeTo[i] = w;
+                    q.enqueue(i);
+                }
             }
         }
     }
@@ -41,7 +40,7 @@ public class DepthFirstPaths {
      * @param v the vertex
      * @return {@code true} if the path exists, {@code false} otherwise
      */
-    public boolean hasPathTo(int v) { return  marked[v]; }
+    public boolean hasPathTo(int v) { return marked[v]; }
 
     /**
      * Returns a path between {@code s} and vertex {@code v},
@@ -66,7 +65,7 @@ public class DepthFirstPaths {
         BufferedReader br = new BufferedReader(new FileReader("tinyCG.txt"));
         Graph g = new Graph(br);
         int s = 0;
-        DepthFirstPaths search = new DepthFirstPaths(g, s);
+        BreadthFirstPaths search = new BreadthFirstPaths(g, s);
 
         for (int v=0; v<g.V(); v++) {
             System.out.print(s + " to " + v + ": ");
