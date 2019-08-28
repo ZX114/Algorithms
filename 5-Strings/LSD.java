@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class LSD {
     /**
      * Least-Significant-Digit First sort.
@@ -31,6 +35,21 @@ public class LSD {
             for (int i = 0; i < N; i++) {
                 a[i] = aux[i];
             }
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine());  // length of the array
+        int W = Integer.parseInt(br.readLine());  // width of each string
+        String[] a = new String[N];  // array of strings
+        for (int i = 0; i < N; i++) {
+            a[i] = br.readLine();
+        }
+        LSD.sort(a, W);
+        for (int i = 0; i < N; i++) {
+            System.out.print(i);
+            System.out.print(" " + a[i] + "\n");
         }
     }
 }
