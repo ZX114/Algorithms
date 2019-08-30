@@ -3,8 +3,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class MSD {
-    private static int R = 256;
-    private static final int M = 0;
+    private static int R = 256;  // extended ASCII
+    private static final int M = 10;  // cutoff to insertion sort
     private static String[] aux;
     private static int charAt(String s, int d) {
         if (d < s.length()) return s.charAt(d);
