@@ -10,7 +10,8 @@ public class FrequencyCounter {
 //        BST<String, Integer> st = new BST<String, Integer>();
 //        RedBlackBST<String, Integer> st = new RedBlackBST<>();
 //        SeparateChainingHashST<String, Integer> st = new SeparateChainingHashST<>();
-        LinearProbingHashST<String, Integer> st = new LinearProbingHashST<>();
+//        LinearProbingHashST<String, Integer> st = new LinearProbingHashST<>();
+        TrieST<Integer> st = new TrieST<>();
 
         long startTime = System.currentTimeMillis();
         Scanner in = new Scanner(new FileReader("leipzig1M.txt"));
