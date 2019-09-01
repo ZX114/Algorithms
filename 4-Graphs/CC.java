@@ -1,3 +1,5 @@
+import java.io.*;
+
 public class CC {
     private boolean[] marked;
     private int[] id;  // id[v] = id of connected component containing v
@@ -46,4 +48,27 @@ public class CC {
     public int id(int v) { return id[v]; }
 
     public int count() { return count; }
+
+    public static void main(String[] args) throws IOException {
+        Graph g = new Graph(new BufferedReader(new FileReader("tinyG.txt")));
+        CC c = new CC(g);
+
+        int M = c.count();
+        System.out.println(M + " components");
+
+        ListBag<Integer>[] components = (ListBag<Integer>[]) new ListBag[M];
+        for (int i = 0; i < M; i++) {
+            components[i] = new ListBag<>();
+        }
+
+        for (int i = 0; i < g.V(); i++) {
+            components[c.id(i)].add(i);
+        }
+
+        for (int i = 0; i < M; i++) {
+            for (int j : components[i])
+                System.out.print(j + " ");
+            System.out.println();
+        }
+    }
 }

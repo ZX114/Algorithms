@@ -12,10 +12,10 @@ public class ListBag<Item> implements Iterable<Item> {
     public int size() { return N; }
 
     public void add(Item it) {
-        Node temp = first;
+        Node oldFirst = first;
         first = new Node();
         first.item = it;
-        first.next = temp;
+        first.next = oldFirst;
         N++;
     }
 
@@ -23,7 +23,7 @@ public class ListBag<Item> implements Iterable<Item> {
 
     private class ListIterator implements Iterator<Item> {
         private Node current = first;
-        public boolean hasNext() { return current!=null; }
+        public boolean hasNext() { return current != null; }
         public Item next() {
             Item item = current.item;
             current = current.next;
