@@ -36,7 +36,7 @@ public class CC {
     }
 
     /**
-     * Whether vertices two vertices are connected or not.
+     * Whether two vertices are connected or not.
      *
      * @param v one vertex
      * @param w the other vertex
